@@ -1,0 +1,147 @@
+[
+  {
+    "elements": [
+      {
+        "id": "search-imdb;when-i-enter-a-keyword-in-the-search-field",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "When I enter a keyword in the search field",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "that I am on the IMDB site",
+            "result": {
+              "status": "passed",
+              "duration": 7611915101
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:7"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I enter the search text \"Die Hard\"",
+            "result": {
+              "status": "passed",
+              "duration": 7966599
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click the search button",
+            "result": {
+              "status": "passed",
+              "duration": 2272803501
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:28"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "the first search result should contain the word \"Die Hard\"",
+            "result": {
+              "status": "passed",
+              "duration": 181406401
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 3166680600
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\node_modules\\selenium-cucumber-js\\runtime\\world.js:250"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "id": "search-imdb;when-i-enter-a-keyword-in-the-search-field",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "When I enter a keyword in the search field",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "that I am on the IMDB site",
+            "result": {
+              "status": "passed",
+              "duration": 6798941900
+            },
+            "line": 10,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:7"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I enter the search text \"Die Hard\" + ENTER",
+            "result": {
+              "status": "passed",
+              "duration": 116810001
+            },
+            "line": 11,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:19"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "the first search result should contain the word \"Die Hard\"",
+            "result": {
+              "status": "passed",
+              "duration": 652736501
+            },
+            "line": 12,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\step-definitions\\search-IMDB.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 3102431600
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\node_modules\\selenium-cucumber-js\\runtime\\world.js:250"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "search-imdb",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Search IMDB",
+    "tags": [],
+    "uri": "C:\\Users\\reva1\\Downloads\\nya\\selenium-cucumber-uppgift2\\features\\search-IMDB.feature"
+  }
+]
