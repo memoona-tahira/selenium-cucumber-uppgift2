@@ -13,7 +13,7 @@
             "name": "that I am on the IMDB site",
             "result": {
               "status": "passed",
-              "duration": 7611915101
+              "duration": 8151809800
             },
             "line": 4,
             "match": {
@@ -26,7 +26,7 @@
             "name": "I enter the search text \"Die Hard\"",
             "result": {
               "status": "passed",
-              "duration": 7966599
+              "duration": 24614000
             },
             "line": 5,
             "match": {
@@ -39,7 +39,7 @@
             "name": "I click the search button",
             "result": {
               "status": "passed",
-              "duration": 2272803501
+              "duration": 1869696401
             },
             "line": 6,
             "match": {
@@ -52,7 +52,7 @@
             "name": "the first search result should contain the word \"Die Hard\"",
             "result": {
               "status": "passed",
-              "duration": 181406401
+              "duration": 101997199
             },
             "line": 7,
             "match": {
@@ -64,7 +64,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 3166680600
+              "duration": 5051307200
             },
             "hidden": true,
             "match": {
@@ -87,7 +87,7 @@
             "name": "that I am on the IMDB site",
             "result": {
               "status": "passed",
-              "duration": 6798941900
+              "duration": 7086856300
             },
             "line": 10,
             "match": {
@@ -100,7 +100,7 @@
             "name": "I enter the search text \"Die Hard\" + ENTER",
             "result": {
               "status": "passed",
-              "duration": 116810001
+              "duration": 122588400
             },
             "line": 11,
             "match": {
@@ -113,7 +113,7 @@
             "name": "the first search result should contain the word \"Die Hard\"",
             "result": {
               "status": "passed",
-              "duration": 652736501
+              "duration": 1085803900
             },
             "line": 12,
             "match": {
@@ -125,7 +125,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 3102431600
+              "duration": 3111632000
             },
             "hidden": true,
             "match": {
