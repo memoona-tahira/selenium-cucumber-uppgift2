@@ -27,6 +27,7 @@ module.exports = function () {
     await signInSubmit.click();
   });
 
+
   this.When(/^search the movie$/, async function () {
 
     let searchField = await $('input[placeholder= "Search IMDb"]');
@@ -38,6 +39,26 @@ module.exports = function () {
 
   this.When(/^add movie to watchlist$/, async function () {
 
+    await driver.wait(until.elementLocated(By.css('.findResult, .findNoResults')));
+
+    let results = await $('.findResult');
+    assert(results, 'Could not find any results');
+    let firstResult = results[0];
+
+    let resultText = await firstResult.getText();
+    var possibleName = resultText.substr(0, resultText.indexOf('('));
+    await sleep(sleepTime);
+    let firstResultLink = driver.findElement(By.linkText(possibleName.trim()));
+    await firstResultLink.click();
+    await sleep(sleepTime);
+    await driver.wait(until.elementLocated(By.css('.watchlist--title-main-desktop-standalone')));
+
+
+    let addWatchList = await $('.uc-add-wl-button-icon--add');
+    if (await addWatchList.isDisplayed()) {
+      await addWatchList.click();
+      await sleep(sleepTime);
+    }
   });
 
 
