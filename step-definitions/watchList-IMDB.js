@@ -63,7 +63,9 @@ module.exports = function () {
 
 
   this.Then(/^the movie will have green ribbon$/, async function () {
-
+    await driver.wait(until.elementLocated(By.css('.inWL')));
+    let ribbon$ = await $('.inWL');
+    assert(ribbon$, 'Could not find any ribbon with inWL class');
   });
 
   this.Then(/^I can log out$/, async function () {
