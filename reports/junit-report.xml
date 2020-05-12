@@ -2,28 +2,28 @@
 <testsuites>
     <testsuite name="search-imdb;when-i-enter-a-keyword-in-the-search-field" tests="4" failures="0" skipped="0">
         <properties>
-            <property name="URI" value="C:\Users\reva1\Downloads\nya\selenium-cucumber-uppgift2\features\search-IMDB.feature">
+            <property name="URI" value="C:/Users/Studerande/Documents/GitHub/selenium-cucumber-uppgift2/features/search-IMDB.feature">
             </property>
         </properties>
-        <testcase name="Given that I am on the IMDB site" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="8.1518098">
+        <testcase name="Given that I am on the IMDB site" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="17.605286304">
         </testcase>
-        <testcase name="When I enter the search text &quot;Die Hard&quot;" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="0.024614">
+        <testcase name="When I enter the search text &quot;Ramy&quot;" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="0.080331368">
         </testcase>
-        <testcase name="And I click the search button" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="1.869696401">
+        <testcase name="And I click the search button" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="5.025492702">
         </testcase>
-        <testcase name="Then the first search result should contain the word &quot;Die Hard&quot;" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="0.101997199">
+        <testcase name="Then the first search result should contain the word &quot;Ramy&quot;" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="0.294946899">
         </testcase>
     </testsuite>
     <testsuite name="search-imdb;when-i-enter-a-keyword-in-the-search-field" tests="3" failures="0" skipped="0">
         <properties>
-            <property name="URI" value="C:\Users\reva1\Downloads\nya\selenium-cucumber-uppgift2\features\search-IMDB.feature">
+            <property name="URI" value="C:/Users/Studerande/Documents/GitHub/selenium-cucumber-uppgift2/features/search-IMDB.feature">
             </property>
         </properties>
-        <testcase name="Given that I am on the IMDB site" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="7.0868563">
+        <testcase name="Given that I am on the IMDB site" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="23.731799141">
         </testcase>
-        <testcase name="When I enter the search text &quot;Die Hard&quot; + ENTER" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="0.1225884">
+        <testcase name="When I enter the search text &quot;Ramy&quot; + ENTER" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="0.858797981">
         </testcase>
-        <testcase name="Then the first search result should contain the word &quot;Die Hard&quot;" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="1.0858039">
+        <testcase name="Then the first search result should contain the word &quot;Ramy&quot;" classname="search-imdb;when-i-enter-a-keyword-in-the-search-field" time="3.830304302">
         </testcase>
     </testsuite>
 </testsuites>
