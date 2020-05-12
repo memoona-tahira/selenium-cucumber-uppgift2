@@ -1,0 +1,13 @@
+{
+  "liveHorn.Live Room ID Array": [
+    "100",
+    "200'"
+  ],
+  "liveHorn.Old Live Status Object": {
+    "100": false
+  },
+  "liveHorn.Live Status Object": {
+    "100": false
+  },
+  "liveHorn.Live NOP": 0
+}
