@@ -29,6 +29,10 @@ module.exports = function () {
 
   this.When(/^search the movie$/, async function () {
 
+    let searchField = await $('input[placeholder= "Search IMDb"]');
+    assert(searchField, 'Can not find the search field on the page');
+    searchField.sendKeys("moona");
+    await searchField.sendKeys(selenium.Key.ENTER);
   });
 
 
@@ -42,6 +46,15 @@ module.exports = function () {
   });
 
   this.Then(/^I can log out$/, async function () {
+    await sleep(sleepTime);
+    let userMenu = await $('.navbar__user-menu-toggle__button');
+    await userMenu.click();
+    let sign_out = driver.findElement(By.linkText("Sign out"));
+    await sign_out.click();
+    await sleep(sleepTime);
+
+    let signInLink = await $('.imdb-header__signin-text');
+    assert.isNotNull(signInLink, 'Sign in link available again');
 
   });
 
