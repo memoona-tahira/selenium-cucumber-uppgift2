@@ -1,0 +1,1 @@
+import express from"\\node_modules\\express";const app=express();app.use(express.static("www")),app.listen(3e3,()=>console.log("Listening on port 3000"));
