@@ -3,7 +3,8 @@ Feature: WatchList IMDB
   Scenario: As a User i will login to my account
     Given that I am on the IMDB site
     When I am logged-in
-    Then I can log out
+    And I can log out
+    Then Login link is available
 
   Scenario: As a User i will add favourite program to the watchlist
     Given that I am on the IMDB site
@@ -15,6 +16,7 @@ Feature: WatchList IMDB
   Scenario: As a user i want to look at my watchlist
     Given that I am on the IMDB site
     When I am logged-in
-    And have movie in watch list
+    And search the movie
+    And add movie to watchlist
     And I am on the watchlist page
     Then the watchlist contain the movie
