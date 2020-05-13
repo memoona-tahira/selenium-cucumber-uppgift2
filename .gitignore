@@ -4,3 +4,7 @@ credentials.json
 reports/*.json
 reports/*.html
 reports/*.xml
+reports
+.idea
+.vscode
+dist
