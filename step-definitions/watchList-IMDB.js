@@ -44,7 +44,7 @@ module.exports = function () {
     let firstResult = results[0];
 
     let resultText = await firstResult.getText();
-    var possibleName = resultText.substr(0, resultText.indexOf('('));
+    let possibleName = resultText.substr(0, resultText.indexOf('('));
     await sleep(sleepTime);
     let firstResultLink = driver.findElement(By.linkText(possibleName.trim()));
     await firstResultLink.click();
