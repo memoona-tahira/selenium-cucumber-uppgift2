@@ -7,3 +7,4 @@ reports/*.xml
 reports
 .idea
 .vscode
+dist
