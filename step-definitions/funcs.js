@@ -19,11 +19,13 @@ global.selectOption = async (cssSelector, optionName) => {
       if(!select){return;}
       let options = select.querySelectorAll('option');
       options.forEach((option,i) => {
-        option.innerText.trim() === 'optionName' && (select.selectedIndex = i);
+        if(option.innerText === 'optionName'){
+          select.selectedIndex = i;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
       })
     })()`
     .split('cssSelector').join(cssSelector)
     .split('optionName').join(optionName);
   await driver.executeScript(codeToRun);
 }
-
