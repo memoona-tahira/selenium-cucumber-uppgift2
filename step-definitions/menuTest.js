@@ -26,16 +26,16 @@ module.exports = function () {
   });
 
   //___________________________________
-  // this.When(/^select Most Popular TV Shows from TV Shows catogary$/, async function () {
-  //   let mostPopularShows = await $('a[href="/chart/tvmeter/?ref_=nv_tvv_mptv"]');
-  //   assert(mostPopularShows, 'Could not find the link Most Popular TV Shows');
-  //   await mostPopularShows.click();
-  //   await sleep();
-  // });
+  this.When(/^select Most Popular TV Shows from TV Shows catogary$/, async function () {
+    let mostPopularShows = await $('a[href="/chart/tvmeter/?ref_=nv_tvv_mptv"]');
+    assert(mostPopularShows, 'Could not find the link Most Popular TV Shows');
+    await mostPopularShows.click();
+    await sleep();
+  });
 
-  // this.When(/^then i click on it$/, async function () {
-  //   let result = await $('.titleColumn a');
-  //   assert(result, 'Could not find the Movie');
-  //   await result[result.length - 1].click();
-  // });
+  this.When(/^then i click on it$/, async function () {
+    let result = await $('.titleColumn a');
+    assert(result, 'Could not find the Movie');
+    await result[result.length - 1].click();
+  });
 }
