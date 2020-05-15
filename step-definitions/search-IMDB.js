@@ -47,5 +47,11 @@ module.exports = function () {
     assert.include(resultText, phrase, 'Could not find the phrase ' + phrase + ' in the first search result.');
     await sleep(sleepTime);
   });
+  this.Then(/^click on it$/, async function () {
+
+    let result = await $('.result_text a');
+    assert(result, 'Could not find the Movie');
+    await result[0].click();
+  });
 
 }
