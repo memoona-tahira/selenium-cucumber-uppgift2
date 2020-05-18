@@ -10,7 +10,7 @@ Feature: WatchList IMDB
     Given that I am on the IMDB site
     When I am logged-in
     And search the movie
-    And add movie to watchlist
+   And add movie to watchlist
     Then the movie will have green ribbon
 
   Scenario: As a user i want to look at my watchlist
