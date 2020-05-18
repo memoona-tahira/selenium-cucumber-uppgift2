@@ -40,21 +40,23 @@ this.Then(/^the result should open a new website to find jobs in IMDb$/, async f
     await sleep(sleepTime);
   });
 
+  this.When(/^I click job search button$/, async function () {
+   let bottonClick = await $('#button-icon');
+   await sleep(sleepTime);
+  });
+
   this.When(/^I enter job search text "([^"]*)" \+ ENTER$/, async function (searchText) {
     let searchField = await $('input[id = "location-typeahead"]');
     assert(searchField, 'Could not find the search result on the page');
-  });
-
-  this.When(/^I click job search button$/, async function () {
-   let bottonClick = await $('#button-icon');
-  //assert(bottonClick, 'Could not find the job search button');
-  // await bottonClick.click();
    await sleep(sleepTime);
   });
 
   this.Then(/^the job search result should contain the word "([^"]*)"$/, async function (phrase) {
-   let result = await $('a[href="https://www.amazon.jobs/en/search?base_query=&loc_query=Stockholm&latitude=59.33258&longitude=18.06683&loc_group_id=&invalid_location=false&country=SWE&city=Stockholm&region=Stockholm+County&county=Stockholm"]');
+    await helpers.loadPage('https://www.amazon.jobs/en/search?base_query=&loc_query=Stockholm&latitude=59.33258&longitude=18.06683&loc_group_id=&invalid_location=false&country=SWE&city=Stockholm&region=Stockholm+County&county=Stockholm');
     await sleep(sleepTime);
   });
 
 }
+
+
+

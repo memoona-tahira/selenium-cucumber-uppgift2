@@ -9,7 +9,7 @@ Feature: User Settings IMDB
       And I change my user id
     Then user id will be changed
 
-    Scenario: As a user i will change my Biography
+   Scenario: As a user i will change my Biography
 
       Given that I am on the IMDB site
       When I am logged-in

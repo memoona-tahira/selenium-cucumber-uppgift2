@@ -28,4 +28,36 @@ this.Then(/^the result should open a new website with help center in IMDb$/, asy
   });
 
 
+// Scenario: I enter a keyword in the search field
+  this.Given(/^that I am on the site of help$/, async function () {
+    await helpers.loadPage('https://help.imdb.com/imdb?ref_=ft_hlp');
+    await sleep(sleepTime);
+  });
+
+  this.When(/^I enter search text "([^"]*)"$/, async function (searchText) {
+    let searchField = await $('input[placeholder= "How can we help?"]');
+    assert(searchField, 'Could not find the search result');
+    searchField.sendKeys(searchText);
+    await sleep(sleepTime);
+  });
+
+  this.When(/^I enter ENTER$/, async function () {
+   let bottonClick = await $('#button-icon');
+   await sleep(sleepTime);
+  });
+
+// Scenario: I enter a keyword + ENTER in the search field
+  this.When(/^I enter search text "([^"]*)" \+ ENTER$/, async function (searchText) {
+    let searchField = await $('input[placeholder= "How can we help?"]');
+    assert(searchField, 'Could not find the search result');
+    searchField.sendKeys(searchText);
+    await searchField.sendKeys(selenium.Key.ENTER);
+  });
+
+  this.Then(/^the search result should contain the word "([^"]*)"$/, async function (phrase) {
+    let result = await $('search_input');
+   await sleep(sleepTime);
+  });
+
+
 }
