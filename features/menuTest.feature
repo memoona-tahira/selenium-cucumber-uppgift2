@@ -22,3 +22,4 @@ Feature: menu test
     Then I select Celebrity News from Celebs catogary
     And I ckick to the first news
 
+
