@@ -66,7 +66,7 @@ module.exports = function () {
   });
 
   this.When(/^I can log out$/, async function () {
-    await sleep(sleepTime);
+    await driver.wait(until.elementLocated(By.css('.navbar__user-menu-toggle__button')));
     let userMenu = await $('.navbar__user-menu-toggle__button');
     await userMenu.click();
     let sign_out = driver.findElement(By.linkText("Sign out"));
