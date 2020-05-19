@@ -5,15 +5,15 @@ Feature:As a user i want to find movies with different way in order to it will b
     When I enter the search text "Ramy"
     And I click the search button
     Then the first search result should contain the word "Ramy"
-    And click on it
+    And click on the movie
 
   Scenario: When I enter a keyword in the search field
     Given that I am on the IMDB site
     When I enter the search text "Lost" + ENTER
     Then the first search result should contain the word "Lost"
-    And click on it
-    Then share the movie
-    And share it with Email
+    And click on the movie
+    Then click on the share button
+    And share i it on the Email
 
 
 
