@@ -19,4 +19,4 @@ Feature: WatchList IMDB
     And search the movie
     And add movie to watchlist
     And I am on the watchlist page
-    Then the watchlist contain the movie
+   Then the watchlist contain the movie

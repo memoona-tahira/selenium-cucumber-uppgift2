@@ -25,15 +25,14 @@ Feature: Video player
 
   Scenario: Check that muting changes the button state
     # we can't test that the sound is actually muted :(
-    When you mute the sound
-    Then the 'is muted button' should be shown
+    When you mute the sound#    Then the 'is muted button' should be shown
 
   Scenario: Check that muting changes the button state
     # we can't test that the sound is actually unmuted :(
     When you unmute the sound
     Then the 'normal sound button' should be shown
 
-  Scenario: Check that lowering the volume to zero changes the button state
+ Scenario: Check that lowering the volume to zero changes the button state
     # we can't test that the sound is actually muted :(
     When you lower the volume to zero
     Then the 'is muted button' should be shown
