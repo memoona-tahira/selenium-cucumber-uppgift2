@@ -63,6 +63,47 @@ module.exports = function () {
     let result = await $('.dropdown-menu-item a');
     assert(result, 'Could not find the Movie');
     await result[2].click();
+
+    await sleep(4000);
+  });
+  //_________________________________________________
+
+
+  this.Then(/^click on  What's on TV and Streaming section on the below$/, async function () {
+    await helpers.loadPage('https://www.imdb.com/whats-on-tv/?ref_=im_2020');
+    await sleep(sleepTime);
+
+  });
+
+  this.Then(/^click on the Everything Coming to Netflix$/, async function () {
+
+    let result = await $('.onoverflow a');
+    assert(result, 'Could not find the Movie');
+    await result[0].click();
+    await sleep(1000);
+
+  });
+
+  this.Then(/^the list sort by Number of votes$/, async function () {
+    await selectOption('.lister-sort-by', 'Number of Votes');
+    await sleep(1000);
+  });
+  this.Then(/^the list lister by ascending order$/, async function () {
+
+    let ascending = await $('.lister-sort-reverse');
+    assert(ascending, 'Could not find the Movie');
+    await driver.wait(until.elementLocated(By.css('.lister-working[style="display: none;"]')), 10000);
+    await ascending.click();
+    await sleep(3000);
+  });
+  this.Then(/^View by Grid view$/, async function () {
+
+    let ascending = await $('.lister-mode');
+    assert(ascending, 'Could not find the Movie');
+    await driver.wait(until.elementLocated(By.css('.lister-working[style="display: none;"]')), 10000);
+    await ascending[0].click();
+    await sleep(3000);
+
   });
 
 }
