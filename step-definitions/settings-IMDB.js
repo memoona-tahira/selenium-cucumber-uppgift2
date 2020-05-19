@@ -4,12 +4,15 @@ let { $, sleep } = require('./funcs');
 module.exports = function () {
 
   let sleepTime = 400;
+  let bioText = 'my name is Memoona and i love movies';
+  let userId = 'memoonatahira';
 
   this.When(/^I go to account settings$/, async function () {
     await driver.wait(until.elementLocated(By.css('.navbar__user-menu-toggle__button')));
     await sleep(sleepTime);
     let userMenu = await $('.navbar__user-menu-toggle__button');
     await userMenu.click();
+    await sleep(sleepTime);
     let sign_out = driver.findElement(By.linkText("Account settings"));
     await sign_out.click();
     await sleep(sleepTime);
@@ -30,7 +33,7 @@ module.exports = function () {
 
     let nickName = await $('input[name = "nick"]');
     nickName.clear();
-    await nickName.sendKeys("memoonatahira");
+    await nickName.sendKeys(userId);
 
     let saveButton = await $('input[value = "Save Changes"]');
     await saveButton.click();
@@ -39,27 +42,30 @@ module.exports = function () {
   this.Then(/^user id will be changed$/, async function () {
     let successMessage = await $('.success');
     assert.isNotNull(successMessage, 'User id is not changed');
+    assert.include(await successMessage.getText(), userId);
   });
 
 
   this.When(/^I change my biography$/, async function () {
     await sleep(sleepTime);
-    let bioText = await $('textarea[name = "bio"]');
+    let bioTextArea = await $('textarea[name = "bio"]');
     await sleep(sleepTime);
-    bioText.clear();
+    bioTextArea.clear();
     await sleep(sleepTime);
-    await bioText.sendKeys("my name is Memoona and i love movies");
-
+    await bioTextArea.sendKeys(bioText);
     let saveButton = await await $('.auth-button--primary');
     await saveButton.click();
-    await sleep(sleepTime);
-    await sleep(500);
+    await sleep(sleepTime + 300);
   });
 
   this.Then(/^user biography will be changed$/, async function () {
-
-     await driver.wait(until.elementLocated(By.css('a[href="/activity/editprofile"]')));
+    await driver.wait(until.elementLocated(By.css('a[href="/activity/editprofile"]')));
     let editLink = await $('a[href="/activity/editprofile"]');
     assert.isNotNull(editLink, 'User bio is saved.');
+    await editLink.click();
+    await sleep(sleepTime);
+    let bioTextArea = await $('textarea[name = "bio"]');
+    let textInBio = await bioTextArea.getText();
+    assert.equal(textInBio, bioText, 'User bio is not what we wrote');
   });
 }
