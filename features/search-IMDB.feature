@@ -12,6 +12,8 @@ Feature:As a user i want to find movies with different way in order to it will b
     When I enter the search text "Lost" + ENTER
     Then the first search result should contain the word "Lost"
     And click on it
+    Then share the movie
+    And share it with Email
 
 
 

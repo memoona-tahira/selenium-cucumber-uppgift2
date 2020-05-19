@@ -53,5 +53,16 @@ module.exports = function () {
     assert(result, 'Could not find the Movie');
     await result[0].click();
   });
+  this.Then(/^share the movie$/, async function () {
+    let result = await $('#title-social-sharing-widget');
+    assert(result, 'Could not find the Movie');
+    await result.click();
+  });
+
+  this.Then(/^share it with Email$/, async function () {
+    let result = await $('.dropdown-menu-item a');
+    assert(result, 'Could not find the Movie');
+    await result[2].click();
+  });
 
 }
