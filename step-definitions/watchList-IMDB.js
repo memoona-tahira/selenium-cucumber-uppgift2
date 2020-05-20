@@ -55,8 +55,8 @@ module.exports = function () {
     let addWatchList = await $('.uc-add-wl-button-icon--add');
     if (await addWatchList.isDisplayed()) {
       await addWatchList.click();
-      await sleep(sleepTime);
     }
+    await sleep(1000);
   });
 
   this.Then(/^the button text will change to Added to watch List$/, async function () {
@@ -112,7 +112,6 @@ module.exports = function () {
     await movieInList.click();
     await driver.wait(until.elementLocated(By.css('.uc-add-wl-button-icon--done')));
     let added = await $('.uc-add-wl-button-icon--done');
-    console.log(await added.isDisplayed());
     if (await added.isDisplayed()) {
       await added.click();
     }
