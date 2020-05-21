@@ -24,6 +24,7 @@ module.exports = function () {
 
 this.Then(/^the result should open a new website to find jobs in IMDb$/, async function () {
    let result = await $('a[href="https://www.amazon.jobs/en/teams/imdb?ref_=ft_jb"]');
+   assert(result, 'Could not find the result');
    await sleep(sleepTime);
   });
 

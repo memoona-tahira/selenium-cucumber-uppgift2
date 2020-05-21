@@ -18,6 +18,7 @@ module.exports = function () {
 
    this.Then(/^the result should open a new website to find IMDb privacy notice$/, async function () {
    let result = await $('a[href="https://www.imdb.com/privacy?ref_=ft_pvc"]');
+   // assert(result, 'Could not find the result');
    await sleep(sleepTime);
   });
 
