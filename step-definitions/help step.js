@@ -38,8 +38,12 @@ this.Then(/^the result should open a new website with help center in IMDb$/, asy
     let searchField = await $('input[placeholder= "How can we help?"]');
     assert(searchField, 'Could not find the search result');
     searchField.sendKeys(searchText);
-    await searchField.click();
   });
+
+    this.When(/^I enter ENTER$/, async function () {
+     let searchField = await $('input[placeholder= "How can we help?"]');
+      await searchField.sendKeys(selenium.Key.ENTER);
+    });
 
 
 // Scenario: I enter a keyword + ENTER in the search field
@@ -50,22 +54,11 @@ this.Then(/^the result should open a new website with help center in IMDb$/, asy
     await searchField.sendKeys(selenium.Key.ENTER);
   });
 
-  this.When(/^I enter ENTER$/, async function () {
-   let enterClick = await $('#enter');
-   await sleep(sleepTime);
-  });
+
 
   this.Then(/^the search result should contain the word "([^"]*)"$/, async function (phrase) {
- // when the search has finished on IMDB
- // we either get one or more results
-    // in elements with the class findResult
-    // or (if no results) we get an element
-    // with the class findNoResults...
-    // so wait for this to happen
-    await driver.wait(until.elementLocated(By.css('.findResult, .findNoResults')));
-    // now the search has finisehd
-    let result = await $('.findResult');
-    await result.click();
+  await driver.wait(until.elementLocated(By.css('.aok-inline-block')));
+    let results = await $('.aok-inline-block');
     assert(results, 'Could not find any results');
     let firstResult = results[0];
     let resultText = await firstResult.getText();
