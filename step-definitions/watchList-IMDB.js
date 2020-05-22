@@ -3,7 +3,7 @@ let { $, sleep } = require('./funcs');
 
 module.exports = function () {
 
-  let sleepTime = 100;
+  let sleepTime = 200;
   let movieName = "Devdas";
 
   this.When(/^I am logged\-in$/, async function () {
@@ -51,21 +51,24 @@ module.exports = function () {
     await sleep(sleepTime);
     await driver.wait(until.elementLocated(By.css('.summary_text')));
 
-
+    await driver.wait(until.elementLocated(By.css('.uc-add-wl-button-icon--add')));
     let addWatchList = await $('.uc-add-wl-button-icon--add');
     if (await addWatchList.isDisplayed()) {
       await addWatchList.click();
-      await sleep(sleepTime);
     }
+    await sleep(1000);
   });
 
-  this.Then(/^the movie will have green ribbon$/, async function () {
-    await driver.wait(until.elementLocated(By.css('.inWL')));
-    let ribbon = await $('.inWL');
-    assert(ribbon, 'Could not find any ribbon with inWL class');
+  this.Then(/^the button text will change to Added to watch List$/, async function () {
+    await driver.wait(until.elementLocated(By.css('.uc-add-wl-button-icon--done')));
+    let added = await $('.uc-add-wl-button-icon--done');
+    assert(await added.isDisplayed() === true, 'Added button is visible');
+    await sleep(1000);
+
   });
 
   this.When(/^I can log out$/, async function () {
+    await sleep(sleepTime + 200);
     await driver.wait(until.elementLocated(By.css('.navbar__user-menu-toggle__button')));
     let userMenu = await $('.navbar__user-menu-toggle__button');
     await userMenu.click();
@@ -91,4 +94,28 @@ module.exports = function () {
     let movieInList = driver.findElement(By.linkText(movieName));
     assert.isNotNull(movieInList, 'Movie is not in the list');
   });
+
+
+  this.Then(/^Remove the movie$/, async function () {
+    await sleep(sleepTime);
+    let added = await $('.uc-add-wl-button-icon--done');
+    if (await added.isDisplayed()) {
+      await added.click();
+    }
+    await sleep(1000);
+
+  });
+
+  this.Then(/^Remove the movie from watch list$/, async function () {
+    await sleep(sleepTime);
+    let movieInList = driver.findElement(By.linkText(movieName));
+    await movieInList.click();
+    await driver.wait(until.elementLocated(By.css('.uc-add-wl-button-icon--done')));
+    let added = await $('.uc-add-wl-button-icon--done');
+    if (await added.isDisplayed()) {
+      await added.click();
+    }
+    await sleep(1000);
+  });
+
 }

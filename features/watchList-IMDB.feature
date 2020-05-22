@@ -10,8 +10,9 @@ Feature: WatchList IMDB
     Given that I am on the IMDB site
     When I am logged-in
     And search the movie
-   And add movie to watchlist
-    Then the movie will have green ribbon
+    And add movie to watchlist
+    Then the button text will change to Added to watch List
+    And Remove the movie
 
   Scenario: As a user i want to look at my watchlist
     Given that I am on the IMDB site
@@ -19,4 +20,5 @@ Feature: WatchList IMDB
     And search the movie
     And add movie to watchlist
     And I am on the watchlist page
-   Then the watchlist contain the movie
+    Then the watchlist contain the movie
+    And Remove the movie from watch list

@@ -18,7 +18,8 @@ module.exports = function () {
 
 this.Then(/^the result should open a new website to get the IMDb App$/, async function () {
     let result = await $('a[href="https://apps.apple.com/us/app/id342792525?mat_click_id=5f3e7d6ba271470dbdb923d0f6ec7af2-20200514-194792&referrer=mat_click_id%3D5f3e7d6ba271470dbdb923d0f6ec7af2-20200514-194792%26link_click_id%3D789417068532758367"]');
-   await sleep(sleepTime);
+ // assert(result, 'Could not find the result');
+    await sleep(sleepTime);
   });
 
 

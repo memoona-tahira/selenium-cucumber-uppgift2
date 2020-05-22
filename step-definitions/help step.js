@@ -23,10 +23,10 @@ module.exports = function () {
   });
 
 this.Then(/^the result should open a new website with help center in IMDb$/, async function () {
-    let result = await $('a[href="https://https://help.imdb.com/imdb?ref_=ft_hlp"]');
+    let result = await $('a[href="https://help.imdb.com/imdb?ref_=ft_hlp"]');
+    assert(result, 'Could not find the result');
     await sleep(sleepTime);
   });
-
 
 // Scenario: I enter a keyword in the search field
   this.Given(/^that I am on the site of help$/, async function () {
@@ -38,13 +38,13 @@ this.Then(/^the result should open a new website with help center in IMDb$/, asy
     let searchField = await $('input[placeholder= "How can we help?"]');
     assert(searchField, 'Could not find the search result');
     searchField.sendKeys(searchText);
-    await sleep(sleepTime);
   });
 
-  this.When(/^I enter ENTER$/, async function () {
-   let bottonClick = await $('#button-icon');
-   await sleep(sleepTime);
-  });
+    this.When(/^I enter ENTER$/, async function () {
+     let searchField = await $('input[placeholder= "How can we help?"]');
+      await searchField.sendKeys(selenium.Key.ENTER);
+    });
+
 
 // Scenario: I enter a keyword + ENTER in the search field
   this.When(/^I enter search text "([^"]*)" \+ ENTER$/, async function (searchText) {
@@ -54,10 +54,16 @@ this.Then(/^the result should open a new website with help center in IMDb$/, asy
     await searchField.sendKeys(selenium.Key.ENTER);
   });
 
-  this.Then(/^the search result should contain the word "([^"]*)"$/, async function (phrase) {
-    let result = await $('search_input');
-   await sleep(sleepTime);
-  });
 
+
+  this.Then(/^the search result should contain the word "([^"]*)"$/, async function (phrase) {
+  await driver.wait(until.elementLocated(By.css('.aok-inline-block')));
+    let results = await $('.aok-inline-block');
+    assert(results, 'Could not find any results');
+    let firstResult = results[0];
+    let resultText = await firstResult.getText();
+    assert.include(resultText, phrase, 'Could not find the phrase ' + phrase + ' in the first search result.');
+    await sleep(1000);
+  });
 
 }
