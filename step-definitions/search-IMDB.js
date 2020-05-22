@@ -1,7 +1,6 @@
 let { $, sleep } = require('./funcs');
 
 module.exports = function () {
-
   let sleepTime = 0;
 
   this.Given(/^that I am on the IMDB site$/, async function () {
@@ -55,15 +54,14 @@ module.exports = function () {
   });
   this.Then(/^click on the share button$/, async function () {
     let result = await $('#title-social-sharing-widget');
-    assert(result, 'Could not find the Movie');
+    assert(result, 'Could not find Share button');
     await result.click();
   });
 
   this.Then(/^share i it on the Email$/, async function () {
     let result = await $('.dropdown-menu-item a');
-    assert(result, 'Could not find the Movie');
+    assert(result, 'Could not find Email click');
     await result[2].click();
-
     await sleep(4000);
   });
   //_________________________________________________
@@ -78,24 +76,30 @@ module.exports = function () {
   this.Then(/^click on the Everything Coming to Netflix$/, async function () {
 
     let result = await $('.onoverflow a');
-    assert(result, 'Could not find the Movie');
+    assert(result, 'Could not find the page');
     await result[0].click();
     await sleep(1000);
 
   });
 
-  this.Then(/^the list sort by Number of votes$/, async function () {
-    await selectOption('.lister-sort-by', 'Number of Votes');
+  this.Then(/^the list sort by Runtime$/, async function () {
+    await selectOption('.lister-sort-by', 'Runtime');
     await sleep(1000);
   });
   this.Then(/^the list lister by ascending order$/, async function () {
 
-    let ascending = await $('.lister-sort-reverse');
-    assert(ascending, 'Could not find the Movie');
-    await driver.wait(until.elementLocated(By.css('.lister-working[style="display: none;"]')), 10000);
-    await ascending.click();
     await sleep(3000);
+    let spans = await $('span.runtime');
+
+    for (let i = 0; i < spans.length - 1; i++) {
+      let firstResult = spans[i];
+      let runtime_1 = await firstResult.getText();
+      let secunfResult = spans[i + 1];
+      let runtime_2 = await secunfResult.getText();
+      assert(Number(runtime_1.slice(0, -3)) >= Number(runtime_2.slice(0, -3)), 'Not sorted by runtime');
+    }
   });
+
   this.Then(/^View by Grid view$/, async function () {
 
     let ascending = await $('.lister-mode');
@@ -103,6 +107,16 @@ module.exports = function () {
     await driver.wait(until.elementLocated(By.css('.lister-working[style="display: none;"]')), 10000);
     await ascending[0].click();
     await sleep(3000);
+
+    let spans = await $('span.runtime');
+
+    for (let i = 0; i < spans.length - 1; i++) {
+      let firstResult = spans[i];
+      let runtime_1 = await firstResult.getText();
+      let secunfResult = spans[i + 1];
+      let runtime_2 = await secunfResult.getText();
+      assert(Number(runtime_1.slice(0, -3)) <= Number(runtime_2.slice(0, -3)), 'Not sorted by runtime');
+    }
 
   });
 

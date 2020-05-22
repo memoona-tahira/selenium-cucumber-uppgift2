@@ -19,7 +19,7 @@ Feature:As a user i want to find movies with different way in order to it will b
     Given that I am on the IMDB site
     Then click on  What's on TV and Streaming section on the below
     And click on the Everything Coming to Netflix
-    And the list sort by Number of votes
+    And the list sort by Runtime
     Then the list lister by ascending order
     Then View by Grid view
 
