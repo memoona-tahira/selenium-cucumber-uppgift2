@@ -89,15 +89,16 @@ module.exports = function () {
   this.Then(/^the list lister by ascending order$/, async function () {
 
     await sleep(3000);
-    let spans = await $('span.runtime');
+    let runtimeList = await $('span.runtime');
 
-    for (let i = 0; i < spans.length - 1; i++) {
-      let firstResult = spans[i];
-      let runtime_1 = await firstResult.getText();
-      let secunfResult = spans[i + 1];
-      let runtime_2 = await secunfResult.getText();
-      assert(Number(runtime_1.slice(0, -3)) >= Number(runtime_2.slice(0, -3)), 'Not sorted by runtime');
+    for (let i = 0; i < runtimeList.length - 1; i++) {
+      let runtime_1 = runtimeList[i];
+      let runtime_1_text = await runtime_1.getText();
+      let runtime_2 = runtimeList[i + 1];
+      let runtime_2_text = await runtime_2.getText();
+      assert(Number(runtime_1_text.slice(0, -3)) >= Number(runtime_2_text.slice(0, -3)), 'Not sorted by runtime descending.');
     }
+
   });
 
   this.Then(/^View by Grid view$/, async function () {
@@ -108,16 +109,14 @@ module.exports = function () {
     await ascending[0].click();
     await sleep(3000);
 
-    let spans = await $('span.runtime');
+    let runtimeList = await $('span.runtime');
 
-    for (let i = 0; i < spans.length - 1; i++) {
-      let firstResult = spans[i];
-      let runtime_1 = await firstResult.getText();
-      let secunfResult = spans[i + 1];
-      let runtime_2 = await secunfResult.getText();
-      assert(Number(runtime_1.slice(0, -3)) <= Number(runtime_2.slice(0, -3)), 'Not sorted by runtime');
+    for (let i = 0; i < runtimeList.length - 1; i++) {
+      let runtime_1 = runtimeList[i];
+      let runtime_1_text = await runtime_1.getText();
+      let runtime_2 = runtimeList[i + 1];
+      let runtime_2_text = await runtime_2.getText();
+      assert(Number(runtime_1_text.slice(0, -3)) <= Number(runtime_2_text.slice(0, -3)), 'Not sorted by runtime ascending.');
     }
-
   });
-
 }
