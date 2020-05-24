@@ -7,7 +7,7 @@ module.exports = function () {
 //   Scenario: I look for help in IMDB
   this.Given(/^that I look for help in the IMDB site$/, async function () {
     await helpers.loadPage('https://www.imdb.com');
-    await sleep(1000);
+    await sleep(sleepTime);
   });
 
    this.When(/^I choose help button in the bottom$/, async function () {

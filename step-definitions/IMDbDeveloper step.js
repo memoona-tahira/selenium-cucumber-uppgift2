@@ -30,6 +30,7 @@ module.exports = function () {
     await driver.wait(until.elementLocated(By.css('.Navigation-module--developer--2HqSU')));
     let results = await $('.Navigation-module--developer--2HqSU');
     assert(results, 'Could not find the result');
+    await results.click();
     await sleep(1000);
   });
 

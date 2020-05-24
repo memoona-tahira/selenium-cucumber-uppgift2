@@ -19,8 +19,9 @@ module.exports = function () {
   });
 
    this.When(/^I click jobs search button in the bottom$/, async function () {
-  // let bottonClick = await $('a[href="https://www.amazon.jobs/en/teams/imdb?ref_=ft_jb"]');
-   let bottonClick = await $('.a-spacing-base a-size-extra-large');
+   let bottonClick = await $('a[href="https://www.amazon.jobs/en/teams/imdb?ref_=ft_jb"]');
+  // let bottonClick = await $('#a-spacing-base a-size-extra-large');
+  // let bottonClick = await $('.a-spacing-base a-size-extra-large');
    assert(bottonClick, 'Could not find the jobs search button');
    await bottonClick.click();
   });
@@ -32,6 +33,7 @@ this.Then(/^the result should open a new website to find jobs in IMDb$/, async f
     let firstResult = results[0];
     let resultText = await firstResult.getText();
     assert.include(resultText, phrase, 'Could not find the phrase ' + phrase + ' in the first search result.');
+    await results.click();
     await sleep(1000);
   });
 
