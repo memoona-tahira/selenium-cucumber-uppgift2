@@ -10,8 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^4.1.2",
+    "express": "^4.16.4",
+    "eyes.selenium": "^3.9.0",
     "jquery": "^3.3.1",
-    "selenium-cucumber-js": "^1.7",
-    "express": "^4.16.4"
+    "selenium-cucumber-js": "^1.7"
   }
 }

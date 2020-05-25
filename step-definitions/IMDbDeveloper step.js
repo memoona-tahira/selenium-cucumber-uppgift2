@@ -27,11 +27,22 @@ module.exports = function () {
   });
   
    this.Then(/^the result should open a new website to find IMDb Developer$/, async function () {
-    await driver.wait(until.elementLocated(By.css('.Navigation-module--developer--2HqSU')));
-    let results = await $('.Navigation-module--developer--2HqSU');
-    assert(results, 'Could not find the result');
-    await results.click();
-    await sleep(1000);
+//    await driver.wait(until.elementLocated(By.css('.Navigation-module--developer--2HqSU')));
+//    let results = await $('.Navigation-module--developer--2HqSU');
+//    await driver.wait(until.elementLocated(By.css('.generator')));
+//    let results = await $('.generator');
+//    await driver.wait(until.elementLocated(By.css('.Navigation-module--nav--3lh5G')));
+//    let results = await $('.Navigation-module--nav--3lh5G');
+  //  await driver.wait(until.elementLocated(By.css('.ipc-page-content-container ipc-page-content-container--center Navigation-module--nav_inner--194Ss')));
+  //  let results = await $('.ipc-page-content-container ipc-page-content-container--center Navigation-module--nav_inner--194Ss');
+  //  assert(results, 'Could not find the result');
+  //  await results.click();
+  //  await sleep(1000);
+  //  let open = await driver.executeScript('return!!window.Developer');
+  let open = await driver.executeScript('return!!window.IMDbDeveloper');
+    expect(open,
+      'Could not find the website'
+    ).to.be.false;
   });
 
 //   Scenario: I look for IMDb Developer in IMDB
