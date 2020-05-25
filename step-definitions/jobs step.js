@@ -11,8 +11,6 @@ module.exports = function () {
   });
 
    this.When(/^I choose jobs search button in the bottom$/, async function () {
-  // let searchBotton = await $('#ipc-link ipc-link--baseAlt ipc-link--touch-target ipc-link--inherit-color ipc-link--launch');
-  // let searchBotton = await $('.ipc-link ipc-link--baseAlt ipc-link--touch-target ipc-link--inherit-color ipc-link--launch');
    let searchBotton = await $('#suggestion-search-button');
    assert(searchBotton, 'Could not find the search botton');
    await searchBotton.click();
@@ -20,32 +18,16 @@ module.exports = function () {
 
    this.When(/^I click jobs search button in the bottom$/, async function () {
    let bottonClick = await $('a[href="https://www.amazon.jobs/en/teams/imdb?ref_=ft_jb"]');
-  // let bottonClick = await $('#a-spacing-base a-size-extra-large');
-  // let bottonClick = await $('.a-spacing-base a-size-extra-large');
    assert(bottonClick, 'Could not find the jobs search button');
    await bottonClick.click();
   });
 
 this.Then(/^the result should open a new website to find jobs in IMDb$/, async function () {
-  // await driver.wait(until.elementLocated(By.css('.find-jobs-text')));
-  //  let results = await $('.find-jobs-text');
-  //  assert(results, 'Could not find any results');
-  //  let firstResult = results[0];
-  //  let resultText = await firstResult.getText();
-  //  assert.include(resultText, phrase, 'Could not find the phrase ' + phrase + ' in the first search result.');
-  //  await results.click();
-  //  await sleep(1000);
-    //  let open = await driver.executeScript('return!!window.Jobs');
   let open = await driver.executeScript('return!!window.Jobs');
     expect(open,
       'Could not find the website'
     ).to.be.false;
   });
-
-//this.Then(/^the result should open a new website to find jobs in IMDb$/, async function () {
-//   let result = await $('a[href="https://www.amazon.jobs/en/teams/imdb?ref_=ft_jb"]');
-//   assert(result, 'Could not find the result');
-//   await sleep(sleepTime);
 
 // Scenario 2: I enter a keyword in the job search field
 // Scenario 3: I enter a keyword + ENTER in the job search field

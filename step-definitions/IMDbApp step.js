@@ -11,19 +11,16 @@ module.exports = function () {
   });
 
    this.When(/^I choose Get the IMDb App button in the bottom$/, async function () {
-//   let searchBotton = await $('input[class="ipc-link ipc-link--baseAlt ipc-link--touch-target ipc-link--inherit-color ipc-link--launch"]');
-// let searchBotton = await $('#ipc-link ipc-link--baseAlt ipc-link--touch-target ipc-link--inherit-color ipc-link--launch');
-// let searchBotton = await $('.ipc-link ipc-link--baseAlt ipc-link--touch-target ipc-link--inherit-color ipc-link--launch');
    let searchBotton = await $('#suggestion-search-button');
    assert(searchBotton, 'Could not find the search botton');
    await searchBotton.click();
   });
 
    this.When(/^I click Get the IMDb App button in the bottom$/, async function () {
-  //let bottonClick = await $('a[href="/whitelist-offsite?url=https%3A%2F%2Ftqp-4.tlnk.io%2Fserve%3Faction%3Dclick%26campaign_id_android%3D427112%26campaign_id_ios%3D427111%26destination_id_android%3D464200%26destination_id_ios%3D464199%26my_campaign%3Dmdot%2520sitewide%2520footer%2520%26my_site%3Dm.imdb.com%26publisher_id%3D350552%26site_id_android%3D133429%26site_id_ios%3D133428&amp;page-action=ft-gettheapp&amp;ref=ft_apps"]');
+  let bottonClick = await $('a[href="/whitelist-offsite?url=https%3A%2F%2Ftqp-4.tlnk.io%2Fserve%3Faction%3Dclick%26campaign_id_android%3D427112%26campaign_id_ios%3D427111%26destination_id_android%3D464200%26destination_id_ios%3D464199%26my_campaign%3Dmdot%2520sitewide%2520footer%2520%26my_site%3Dm.imdb.com%26publisher_id%3D350552%26site_id_android%3D133429%26site_id_ios%3D133428&amp;page-action=ft-gettheapp&amp;ref=ft_apps"]');
   //let bottonClick = await $('a[href="https://www.imdb.com/whitelist-offsite?url=https%3A%2F%2Ftqp-4.tlnk.io%2Fserve%3Faction%3Dclick%26campaign_id_android%3D427112%26campaign_id_ios%3D427111%26destination_id_android%3D464200%26destination_id_ios%3D464199%26my_campaign%3Dmdot%2520sitewide%2520footer%2520%26my_site%3Dm.imdb.com%26publisher_id%3D350552%26site_id_android%3D133429%26site_id_ios%3D133428&page-action=ft-gettheapp&ref=ft_apps"]');
   //let bottonClick = await $('a[href="/whitelist-offsite?url=https%3A%2F%2Ftqp-4.tlnk.io%2Fserve%3Faction%3Dclick%26campaign_id_android%3D427112%26campaign_id_ios%3D427111%26destination_id_android%3D464200%26destination_id_ios%3D464199%26my_campaign%3Dmdot%2520sitewide%2520footer%2520%26my_site%3Dm.imdb.com%26publisher_id%3D350552%26site_id_android%3D133429%26site_id_ios%3D133428&page-action=ft-gettheapp&ref=ft_apps"]');
-   let bottonClick = await $('a[href="https://apps.apple.com/us/app/id342792525?mat_click_id=5f3e7d6ba271470dbdb923d0f6ec7af2-20200514-194792&referrer=mat_click_id%3D5f3e7d6ba271470dbdb923d0f6ec7af2-20200514-194792%26link_click_id%3D789417068532758367"]');
+  // let bottonClick = await $('a[href="https://apps.apple.com/us/app/id342792525?mat_click_id=5f3e7d6ba271470dbdb923d0f6ec7af2-20200514-194792&referrer=mat_click_id%3D5f3e7d6ba271470dbdb923d0f6ec7af2-20200514-194792%26link_click_id%3D789417068532758367"]');
   //  let bottonClick = await $('.ipc-list-item__text');
   // let bottonClick = await $('.ember205');
    assert(bottonClick, 'Could not find the search button');
